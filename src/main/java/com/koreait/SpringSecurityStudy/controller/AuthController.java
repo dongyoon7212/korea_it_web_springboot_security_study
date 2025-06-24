@@ -13,4 +13,6 @@ public class AuthController {
     public ResponseEntity<?> test() {
         return ResponseEntity.ok("test");
     }
+
+
 }
