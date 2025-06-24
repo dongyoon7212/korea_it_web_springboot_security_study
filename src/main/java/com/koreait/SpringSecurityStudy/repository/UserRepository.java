@@ -5,6 +5,8 @@ import com.koreait.SpringSecurityStudy.mapper.UserMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import java.util.Optional;
+
 @Repository
 public class UserRepository {
 
@@ -13,5 +15,9 @@ public class UserRepository {
 
     public int addUser(User user) {
         return userMapper.addUser(user);
+    }
+
+    public Optional<User> getUserByUserId(Integer userId) {
+        return userMapper.getUserByUserId(userId);
     }
 }
