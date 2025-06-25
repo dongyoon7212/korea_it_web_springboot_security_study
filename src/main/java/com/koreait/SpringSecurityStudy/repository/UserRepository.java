@@ -20,4 +20,8 @@ public class UserRepository {
     public Optional<User> getUserByUserId(Integer userId) {
         return userMapper.getUserByUserId(userId);
     }
+
+    public Optional<User> getUserByUsername(String username) {
+        return userMapper.getUserByUsername(username);
+    }
 }
