@@ -13,10 +13,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.oauth2.core.user.DefaultOAuth2User;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
+import org.springframework.stereotype.Component;
 
 import java.io.IOException;
 import java.util.Optional;
 
+@Component
 public class OAuth2SuccessHandler implements AuthenticationSuccessHandler {
 
     @Autowired
@@ -43,6 +45,7 @@ public class OAuth2SuccessHandler implements AuthenticationSuccessHandler {
         if(oAuth2User == null) {
             //프론트로 provider와 providerUserId, email 전달
             response.sendRedirect("http://localhost:3000/auth/oauth2?provider=" + provider + "&providerUserId=" + providerUserId + "&email=" + email);
+            return;
         }
 
         //연동된 사용자가 있다면? => userId를 통해 회원 정보 조회
